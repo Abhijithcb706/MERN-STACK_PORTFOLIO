@@ -7,11 +7,13 @@ const {
   updateExperience,
   deleteExperience,
 } = require("../controllers/experienceController");
+const protect = require("../middlewares/authMiddleware");
+
 
 
 router.get("/", getExperience);
 
-router.post("/", createExperience);
-router.put("/:id", updateExperience);
-router.delete("/:id", deleteExperience);
+router.post("/",protect, createExperience);
+router.put("/:id",protect, updateExperience);
+router.delete("/:id",protect, deleteExperience);
 module.exports=router

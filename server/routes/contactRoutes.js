@@ -1,11 +1,13 @@
-const express =require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
+const protect = require("../middlewares/authMiddleware");
 
-const {createContact,getMessages}= require('../controllers/contactControllers')
+const {
+  createContact,
+  getMessages,
+} = require("../controllers/contactControllers");
 
+router.post("/", createContact);
+router.get("/", protect, getMessages);
 
-router.post('/',createContact)
-router.get('/',getMessages)
-
-
-module.exports=router
+module.exports = router;
