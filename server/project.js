@@ -25,6 +25,7 @@ app.use("/portfolio/experience", require("./routes/experienceRoutes"));
 app.use("/api/contact/", require("./routes/contactRoutes"));
 app.use("/api/hero/", require("./routes/heroRoutes"));
 app.use("/api/admin", require("./routes/authRoutes"));
+app.use("/api/upload",require('./routes/uploadRoutes'))
 
 app.use(errorHandler);
 
