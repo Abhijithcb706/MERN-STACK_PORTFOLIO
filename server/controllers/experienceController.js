@@ -35,5 +35,7 @@ exports.deleteExperience = async (req, res, next) => {
     res.json({ message: "Experience Deleted" });
   } catch (err) {
     next(err);
+    console.log("err",err);
+    
   }
 };

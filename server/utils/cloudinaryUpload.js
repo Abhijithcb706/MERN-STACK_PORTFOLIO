@@ -1,16 +1,24 @@
+
+
 const cloudinary = require("../config/cloudinary");
 const fs = require("fs");
 
-const uploadToCloudinary = async (fileURLToPath, folder = "portfolio") => {
+const uploadToCloudinary = async (filePath, folder = "portfolio") => {
   try {
-    const res = await cloudinary.uploader.upload(fileURLToPath, { folder });
+    const result = await cloudinary.uploader.upload(filePath, { folder });
 
+    // delete local file after upload
     fs.unlinkSync(filePath);
-    return res.secure_url;
+
+    return result.secure_url;
   } catch (err) {
-    if (fs.existsSync('../uploads')) fs.unlinkSync(filePath);
+    // remove file if upload fails
+    if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath);
+    }
     throw err;
   }
 };
 
 module.exports = uploadToCloudinary;
+

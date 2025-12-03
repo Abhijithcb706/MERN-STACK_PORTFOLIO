@@ -10,10 +10,10 @@ const {
   deleteProject,
 } = require("../controllers/projectController");
 
-router.get("/", getProjects);
-router.get("/:id", getProject);
+router.get("/getAllProjects", getProjects);
+router.get("/getProject/:id", getProject);
 
-router.post("/", protect, createProject);
-router.put("/:id", protect, updateProject);
-router.delete("/:id", protect, deleteProject);
+router.post("/createProject", protect, createProject);
+router.put("/editProject/:id", protect, updateProject);
+router.delete("/deleteProject/:id", protect, deleteProject);
 module.exports = router;

@@ -11,9 +11,9 @@ const protect = require("../middlewares/authMiddleware");
 
 
 
-router.get("/", getExperience);
+router.get("/getExperience", getExperience);
 
-router.post("/",protect, createExperience);
-router.put("/:id",protect, updateExperience);
-router.delete("/:id",protect, deleteExperience);
+router.post("/createExperience",protect, createExperience);
+router.put("/editExperience/:id",protect, updateExperience);
+router.delete("/deleteExperience/:id",protect, deleteExperience);
 module.exports=router

@@ -7,7 +7,7 @@ const {
   getMessages,
 } = require("../controllers/contactControllers");
 
-router.post("/", createContact);
-router.get("/", protect, getMessages);
+router.post("/createContact", createContact);
+router.get("/getMessage", protect, getMessages);
 
 module.exports = router;

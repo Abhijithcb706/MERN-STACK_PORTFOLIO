@@ -2,28 +2,24 @@ const Contact = require("../models/Contact");
 
 exports.createContact = async (req, res, next) => {
   try {
-    const { name, email, subject, message, saveToDb } = req.body;
+    const { name, email, message } = req.body;
 
-    if (saveToDb) {
-      await Contact.create({
-        email,
-        name,
-        subject,
-        message,
-      });
-    }
-
-    //  const mailOptions = {
-    //   from: process.env.EMAIL_USER,
-    //   to: process.env.EMAIL_USER,
-    //   subject:`Portfolio Contact: ${subject || 'New message'}`,
-    //   text:` From: ${name} <${email}>\n\n${message}`
-    // };
-
-    await transporter.sendMail(mailOptions);
-    res.status(201).json({ message: "Message sent" });
-  } catch (err) {
-    next(err);
+    const savedMessage = await Contact.create({
+      name,
+      email,
+      message,
+    });
+    res.status(201).json({
+      success: true,
+      message: "Message Sent Successfully",
+      data: savedMessage,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to Sent message",
+      error: error.message,
+    });
   }
 };
 

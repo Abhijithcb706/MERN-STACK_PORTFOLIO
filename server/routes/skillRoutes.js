@@ -8,9 +8,9 @@ const {
   updateSkill,
   deleteSkill,
 } = require("../controllers/skillController");
-router.get("/", getSkills);
-router.post("/", protect, createSkill);
-router.put("/:id", protect, updateSkill);
-router.delete("/:id", protect, deleteSkill);
+router.get("/getSkills", getSkills);
+router.post("/createSkill", protect, createSkill);
+router.put("/editSkill/:id", protect, updateSkill);
+router.delete("/deleteSkill/:id", protect, deleteSkill);
 
 module.exports = router;

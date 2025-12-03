@@ -13,10 +13,10 @@ exports.getProjects = async (req, res, next) => {
 
 exports.getProject = async (req, res, next) => {
   try {
-    const Project = await Project.findById(req.params.id);
-    if (!Project) return res.status(404).json({ message: "Project Not Found" });
-    res.json(Project);
-  } catch (error) {
+    const project = await Project.findById(req.params.id);
+    if (!project) return res.status(404).json({ message: "project Not Found" });
+    res.json(project);
+  } catch (err) {
     next(err);
   }
 };
