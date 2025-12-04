@@ -8,7 +8,7 @@ const navigation = [
   { name: 'Contact', href: '#', current: false },
 ]
 
-import logo from "../assets/download.png";
+import logo from "../assets/logo.png";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -18,7 +18,7 @@ export default function Example() {
   return (
     <Disclosure
       as="nav"
-      className="relative bg-white/35 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 rounded-3xl h-[69px]"
+      className="relative bg-white/35 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 rounded-3xl h-[69px] mt-10 mx-5"
     >
     
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -37,10 +37,10 @@ export default function Example() {
               <img
                 alt="Your Company"
                 src={logo}
-                className="h-8 w-auto"
+                className="h-25 w-25"
               />
             </div>
-            <div className="hidden sm:ml-6 sm:block">
+            <div className="hidden sm:ml-6 sm:block mt-8">
               <div className="flex space-x-4">
                 {navigation.map((item) => (
                   <a
