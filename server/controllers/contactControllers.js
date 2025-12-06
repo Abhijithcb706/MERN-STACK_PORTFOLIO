@@ -25,7 +25,7 @@ exports.createContact = async (req, res, next) => {
 
 exports.getMessages = async (req, res, next) => {
   try {
-    const messages = await Contact.find().sort({ createAt: -1 });
+    const messages = await Contact.find().sort({ createdAt: -1 });
     res.json(messages);
   } catch (err) {
     next(err);

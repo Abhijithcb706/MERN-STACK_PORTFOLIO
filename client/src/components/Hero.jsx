@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import heroImg from "../assets/heroImg.png";
 function Hero() {
   return (
@@ -17,17 +18,21 @@ function Hero() {
         </p>
 
         <div className="flex gap-4 mt-8 justify-start ">
-          <button className="bg-cyan-400 text-black px-6 py-3 rounded-lg font-medium hover:bg-cyan-600">
-            View Projects
-          </button>
-          <button className="bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-gray-400">
-            Download Resume
-          </button>
+          <Link to="/contact">
+            <button className="bg-cyan-400 text-black px-6 py-3 rounded-lg font-medium hover:bg-cyan-600">
+              Hire Me
+            </button>
+          </Link>
+          <Link to="/about">
+            <button className="bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-gray-400">
+              More About Me
+            </button>
+          </Link>
         </div>
       </div>
 
       <div className="hidden md:block h-2">
-        <img src={heroImg} alt="Developer Img" className="w-fit h-96"/>
+        <img src={heroImg} alt="Developer Img" className="w-fit h-96" />
       </div>
     </div>
   );
